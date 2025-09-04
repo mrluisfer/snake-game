@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 /* ========================================
    CSS Custom Properties (Variables)
    ======================================== */
@@ -61,8 +63,6 @@
 *,
 *::before,
 *::after {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
   user-select: none;
 }
@@ -135,12 +135,6 @@ body::before {
 /* ========================================
    Header Section
    ======================================== */
-.header {
-  margin-bottom: var(--space-xl);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
 .header-github-link {
   display: flex;
@@ -649,17 +643,10 @@ button:disabled {
   text-align: left;
   line-height: 1.5rem;
   margin-left: 1rem;
-  list-style: disc;
-  opacity: 0.7;
+  list-style: square;
+  opacity: 0.6;
+  @apply transition-all;
 }
 .how-to-play-title ul li:hover {
   opacity: 1;
-}
-
-.credits-title {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
-  text-align: right;
 }
