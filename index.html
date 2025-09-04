@@ -43,7 +43,7 @@
           <nav aria-label="External links">
             <a
               href="https://github.com/mrluisfer/snake-game"
-              class="header-github-link"
+              class="header-github-link active:scale-95 transition-all"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="View Snake Game source code on GitHub (opens in new tab)"
@@ -137,12 +137,24 @@
                 aria-describedby="controls-description"
               >
                 <div class="key-row">
-                  <div class="key" aria-label="Up arrow key">↑</div>
+                  <div class="key" aria-label="Up arrow key" id="key-up">↑</div>
                 </div>
                 <div class="key-row">
-                  <div class="key key-left" aria-label="Left arrow key">↑</div>
-                  <div class="key" aria-label="Down arrow key">↓</div>
-                  <div class="key key-right" aria-label="Right arrow key">
+                  <div
+                    class="key key-left"
+                    aria-label="Left arrow key"
+                    id="key-left"
+                  >
+                    ↑
+                  </div>
+                  <div class="key" aria-label="Down arrow key" id="key-down">
+                    ↓
+                  </div>
+                  <div
+                    class="key key-right"
+                    aria-label="Right arrow key"
+                    id="key-right"
+                  >
                     ↑
                   </div>
                 </div>
@@ -150,7 +162,7 @@
               <p id="controls-description">
                 Use arrow keys to move the snake. Press SPACE to pause the game.
               </p>
-              <div class="key-row">
+              <div class="key-row" id="key-space">
                 <p class="key key-space">SPACE</p>
               </div>
             </div>
@@ -173,19 +185,85 @@
             </ul>
           </section>
 
-          <section aria-labelledby="credits-title">
+          <section
+            aria-labelledby="credits-title"
+            class="text-right credits-title"
+          >
             <h2 id="credits-title" class="text-lg">Enjoy the Game!</h2>
-            <a
-              href="https://mrluisfer.vercel.app"
-              class="text-purple-400 opacity-60 hover:opacity-100 transition-opacity"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit Luis Alvarez portfolio website (opens in new tab)"
+            <h3
+              class="text-md mt-4 opacity-80 hover:opacity-100 transition-opacity mr-4"
             >
-              Created with <span aria-hidden="true">💜</span> by Luis Alvarez
-            </a>
+              Credits
+            </h3>
+            <ul>
+              <li>
+                <a
+                  href="https://mrluisfer.vercel.app"
+                  class="text-purple-400 transition-opacity"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit Luis Alvarez portfolio website (opens in new tab)"
+                >
+                  Created with <span aria-hidden="true">💜</span> by Luis
+                  Alvarez
+                </a>
+              </li>
+              <a
+                href="https://github.com/LuisAlvarez/snake-game"
+                class="text-purple-400 transition-opacity"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Luis Alvarez GitHub profile (opens in new tab)"
+              >
+                <li>You can find the source code on my GitHub Profile</li>
+              </a>
+            </ul>
           </section>
         </footer>
+
+        <section
+          class="audio-controls mt-6"
+          aria-labelledby="audio-controls-container"
+        >
+          <h3 id="audio-controls-title" aria-labelledby="audio-controls-title">
+            Volume Controls
+          </h3>
+          <div class="volume-control">
+            <span>🔉</span>
+            <input
+              type="range"
+              id="volumeSlider"
+              class="volume-slider"
+              min="0"
+              max="100"
+              value="30"
+            />
+            <span class="volume-display" id="volumeDisplay">30%</span>
+          </div>
+
+          <div class="buttons">
+            <button id="eat-sound">🍎 Eat Sound</button>
+            <button id="game-over-sound">💀 Game Over</button>
+            <button
+              id="mute-btn"
+              class="mute-btn"
+              aria-pressed="false"
+              aria-label="Mute or unmute game sounds"
+            >
+              🔇 Mute
+            </button>
+          </div>
+        </section>
+
+        <!-- <div class="audio-controls">
+          <h3>Additional Controls</h3>
+          <div class="buttons">
+            <button onclick="setVolume(25)">Volume 25%</button>
+            <button onclick="setVolume(50)">Volume 50%</button>
+            <button onclick="setVolume(75)">Volume 75%</button>
+            <button onclick="setVolume(100)">Volume 100%</button>
+          </div>
+        </div> -->
       </div>
     </div>
 

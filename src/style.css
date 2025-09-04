@@ -79,7 +79,6 @@ body {
   font-size: 0.75rem;
   line-height: 1.4;
   min-height: 100vh;
-  overflow: hidden;
   position: relative;
 }
 
@@ -129,7 +128,7 @@ body::before {
   display: flex;
   align-items: start;
   justify-content: space-between;
-  margin-top: var(--space-lg);
+  margin-top: var(--space-2xl);
   gap: 1rem;
 }
 /* ========================================
@@ -140,7 +139,6 @@ body::before {
   display: flex;
   align-items: center;
   text-decoration: none;
-  transition: transform var(--transition-base);
 }
 
 .header-github-link img {
@@ -641,12 +639,100 @@ button:disabled {
 
 .how-to-play-title ul li {
   text-align: left;
-  line-height: 1.5rem;
+  line-height: 2rem;
   margin-left: 1rem;
-  list-style: square;
+  list-style: none;
   opacity: 0.6;
   @apply transition-all;
 }
 .how-to-play-title ul li:hover {
   opacity: 1;
+}
+
+.credits-title ul li {
+  text-align: right;
+  line-height: 2rem;
+  margin-right: 1rem;
+  list-style: none;
+  opacity: 0.6;
+  @apply transition-all;
+}
+.credits-title ul li:hover {
+  opacity: 1;
+}
+
+.audio-controls {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  margin-bottom: 30px;
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.volume-slider {
+  flex: 1;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.volume-display {
+  font-weight: bold;
+  min-width: 40px;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.mute-btn {
+  background: #e74c3c;
+}
+
+.mute-btn:hover {
+  background: #c0392b;
+}
+
+.pressed {
+  filter: brightness(0.8);
+  transform: scale(0.95);
+  @apply transition-all bg-zinc-600 text-white;
 }
