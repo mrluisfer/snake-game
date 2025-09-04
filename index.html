@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Classic Snake Game with retro pixel art style. Control the snake with arrow keys, eat food to grow and increase your score."
+    />
+    <meta
+      name="keywords"
+      content="snake game, retro game, browser game, javascript game, classic arcade"
+    />
+    <meta name="author" content="Luis Alvarez" />
+    <meta name="theme-color" content="#00ff00" />
+    <meta property="og:title" content="Snake Game - Retro Style" />
+    <meta
+      property="og:description"
+      content="Play the classic Snake game with a modern twist. Use arrow keys to control the snake and eat food to grow!"
+    />
+    <meta property="og:type" content="website" />
+
+    <title>Snake Game - Classic Retro Style | Play Now</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div id="app">
+      <div class="game-container">
+        <header class="header">
+          <h1>
+            <span class="visually-hidden">Welcome to the </span>
+            SNAKE GAME
+          </h1>
+          <nav aria-label="External links">
+            <a
+              href="https://github.com/mrluisfer/snake-game"
+              class="header-github-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View Snake Game source code on GitHub (opens in new tab)"
+            >
+              <img src="/assets/github.svg" alt="" role="presentation" />
+              <span class="visually-hidden">GitHub Repository</span>
+            </a>
+          </nav>
+        </header>
+
+        <section class="score-container" aria-label="Game scores">
+          <div class="score" role="status" aria-live="polite">
+            <span aria-label="Current score"
+              >Score: <span id="score">0</span></span
+            >
+          </div>
+          <div class="high-score" role="status" aria-live="polite">
+            <span aria-label="High score"
+              >High Score: <span id="highScore">0</span></span
+            >
+          </div>
+        </section>
+
+        <main id="main-content" class="game-area">
+          <canvas
+            id="gameCanvas"
+            width="500"
+            height="500"
+            role="application"
+            aria-label="Snake game canvas. Use arrow keys to move the snake and space to pause."
+            tabindex="0"
+          >
+            <p>
+              Your browser does not support the HTML5 canvas element. Please
+              update your browser to play this game.
+            </p>
+          </canvas>
+
+          <div
+            class="game-over hidden"
+            id="gameOver"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="game-over-title"
+          >
+            <h2 id="game-over-title">GAME OVER</h2>
+            <p>
+              Your Score:
+              <span id="finalScore" aria-label="Final score">0</span>
+            </p>
+            <button
+              id="restartBtn"
+              type="button"
+              aria-describedby="restart-description"
+            >
+              PLAY AGAIN
+            </button>
+            <span id="restart-description" class="visually-hidden">
+              Press Enter or click to restart the game
+            </span>
+          </div>
+
+          <div
+            class="start-screen"
+            id="startScreen"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="welcome-title"
+          >
+            <h2 id="welcome-title">Welcome to the Snake Game!</h2>
+            <button
+              id="startBtn"
+              type="button"
+              aria-describedby="start-description"
+              autofocus
+            >
+              START GAME
+            </button>
+            <span id="start-description" class="visually-hidden">
+              Press Enter or click to start playing
+            </span>
+          </div>
+
+          <aside class="controls-container">
+            <div aria-labelledby="controls-title" class="controls">
+              <h3 id="controls-title">CONTROLS</h3>
+              <div
+                class="control-keys"
+                role="img"
+                aria-labelledby="controls-title"
+                aria-describedby="controls-description"
+              >
+                <div class="key-row">
+                  <div class="key" aria-label="Up arrow key">↑</div>
+                </div>
+                <div class="key-row">
+                  <div class="key key-left" aria-label="Left arrow key">↑</div>
+                  <div class="key" aria-label="Down arrow key">↓</div>
+                  <div class="key key-right" aria-label="Right arrow key">
+                    ↑
+                  </div>
+                </div>
+              </div>
+              <p id="controls-description">
+                Use arrow keys to move the snake. Press SPACE to pause the game.
+              </p>
+            </div>
+          </aside>
+        </main>
+
+        <footer class="game-info-container">
+          <section
+            aria-labelledby="how-to-play-title"
+            class="how-to-play-title"
+          >
+            <h2 id="how-to-play-title">Snake Game with a Retro Style</h2>
+            <ul>
+              <li>Use arrow keys to control the snake</li>
+              <li>Eat food to grow and increase your score</li>
+              <li>Avoid hitting walls or yourself</li>
+              <li>Press SPACE to pause anytime</li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="credits-title" class="credits-title">
+            <h2 id="credits-title">Enjoy the Game!</h2>
+            <a
+              href="https://mrluisfer.vercel.app"
+              class="creator-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit Luis Alvarez portfolio website (opens in new tab)"
+            >
+              <span aria-hidden="true">💙</span>
+              Created with love by Luis Alvarez
+            </a>
+          </section>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Live region for game announcements -->
+    <div
+      id="game-announcements"
+      aria-live="assertive"
+      aria-atomic="true"
+      class="visually-hidden"
+    ></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
