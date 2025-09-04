@@ -2,7 +2,7 @@ import type { Food, GameElements, Position } from "./types";
 import { AudioManager } from "./AudioManager";
 import { GAME_CONFIG } from "./gameConfig";
 import { ParticleSystem } from "./ParticleSystem";
-import { Colors } from "./colors";
+import { Colors } from "./Colors";
 
 export class SnakeGame {
   private readonly canvas: HTMLCanvasElement;
