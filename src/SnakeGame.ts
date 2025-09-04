@@ -2,6 +2,7 @@ import type { Food, GameElements, Position } from "./types";
 import { AudioManager } from "./AudioManager";
 import { GAME_CONFIG } from "./gameConfig";
 import { ParticleSystem } from "./ParticleSystem";
+import { Colors } from "./colors";
 
 export class SnakeGame {
   private readonly canvas: HTMLCanvasElement;
@@ -244,7 +245,7 @@ export class SnakeGame {
       this.food.y * GAME_CONFIG.GRID_SIZE + GAME_CONFIG.GRID_SIZE / 2;
 
     for (let i = 0; i < 8; i++) {
-      this.particleSystem.addParticle(centerX, centerY, "#00ff00");
+      this.particleSystem.addParticle(centerX, centerY, Colors.primaryGreen);
     }
   }
 
@@ -285,20 +286,20 @@ export class SnakeGame {
   }
 
   private clearCanvas(): void {
-    this.ctx.fillStyle = "#111";
+    this.ctx.fillStyle = Colors.background;
     this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
   }
 
   private drawSnake(): void {
     this.ctx.shadowBlur = 10;
-    this.ctx.shadowColor = "#00ff00";
+    this.ctx.shadowColor = Colors.accentGreen;
 
     this.snake.forEach((segment, index) => {
       if (index === 0) {
-        this.ctx.fillStyle = "#00ff00";
+        this.ctx.fillStyle = Colors.primaryGreen;
         this.ctx.shadowBlur = 15;
       } else {
-        this.ctx.fillStyle = "#00cc00";
+        this.ctx.fillStyle = Colors.secondaryGreen;
         this.ctx.shadowBlur = 5;
       }
 

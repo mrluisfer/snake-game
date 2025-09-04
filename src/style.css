@@ -5,11 +5,13 @@
    ======================================== */
 :root {
   /* Color Palette */
-  --primary-green: #00ff41;
-  --secondary-green: #00cc33;
-  --dark-green: #008f21;
-  --accent-green: #39ff14;
-  --light-green: #ccffcc;
+  --primary-green: #00e5ff;
+  --secondary-green: #00b8d4;
+  --dark-green: #006978;
+  --accent-green: #00fff7;
+  --light-green: #b2fefa;
+  --border-glow: rgba(0, 229, 255, 0.6);
+  --shadow-glow: rgba(0, 229, 255, 0.85);
 
   --bg-primary: #0a0a0f;
   --bg-secondary: #111118;
@@ -18,8 +20,6 @@
 
   --surface-dark: #000000;
   --surface-elevated: #1a1a1a;
-  --border-glow: rgba(0, 255, 65, 0.6);
-  --shadow-glow: rgba(0, 255, 65, 0.8);
 
   /* Typography */
   --font-primary: "Press Start 2P", "Courier New", monospace;
@@ -581,7 +581,7 @@ body::before {
 button:focus-visible,
 a:focus-visible,
 canvas:focus-visible {
-  outline: 3px solid #00ff00;
+  outline: 3px solid var(--accent-green);
   outline-offset: 2px;
 }
 
@@ -618,7 +618,7 @@ button {
   cursor: pointer;
   font-family: inherit;
   border: 2px solid transparent;
-  background-color: #00ff00;
+  background-color: var(--accent-green);
   color: #000;
   padding: 12px 24px;
   font-weight: bold;
@@ -626,7 +626,7 @@ button {
 }
 
 button:hover {
-  background-color: #00cc00;
+  background-color: var(--light-green);
   transform: translateY(-1px);
 }
 
