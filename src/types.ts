@@ -28,4 +28,17 @@ export interface GameElements {
   startScreenElement: HTMLElement;
   startBtn: HTMLButtonElement;
   restartBtn: HTMLButtonElement;
+
+  // Key Controls if the user play with only mouse
+  keyUp: HTMLElement;
+  keyDown: HTMLElement;
+  keyLeft: HTMLElement;
+  keyRight: HTMLElement;
+  keySpace: HTMLElement;
+}
+
+export interface VolumeControlElements {
+  eatSound: HTMLButtonElement;
+  gameOverSound: HTMLButtonElement;
+  muteBtn: HTMLButtonElement;
 }

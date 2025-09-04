@@ -61,6 +61,12 @@ export class SnakeGame {
       startScreenElement: "startScreen",
       startBtn: "startBtn",
       restartBtn: "restartBtn",
+      // Key Controls if the user play with only mouse
+      keyUp: "key-up",
+      keyDown: "key-down",
+      keyLeft: "key-left",
+      keyRight: "key-right",
+      keySpace: "key-space",
     };
 
     const elements: Partial<GameElements> = {};
@@ -120,10 +126,28 @@ export class SnakeGame {
     this.elements.restartBtn.addEventListener("click", () =>
       this.restartGame()
     );
+    // Key Controls if the user play with only mouse
+    const directionMap = {
+      keyUp: [0, -1],
+      keyDown: [0, 1],
+      keyLeft: [-1, 0],
+      keyRight: [1, 0],
+    };
+
+    // Register direction listeners
+    Object.entries(directionMap).forEach(([key, [dx, dy]]) => {
+      this.elements[key as keyof GameElements]?.addEventListener("click", () =>
+        this.changeDirection(dx, dy)
+      );
+    });
   }
 
   private handleKeyPress(e: KeyboardEvent): void {
-    if (!this.gameRunning && e.code !== "Space") return;
+    if (!this.gameRunning && e.code === "Space") {
+      return this.restartGame();
+    } else if (!this.gameRunning && e.code !== "Space") {
+      return;
+    }
 
     const keyActions: Record<string, () => void> = {
       ArrowUp: () => this.changeDirection(0, -1),
