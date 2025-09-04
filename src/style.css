@@ -463,6 +463,21 @@ body::before {
 .key-right {
   transform: rotate(90deg);
 }
+.key-space {
+  width: 8rem;
+  margin-top: 0.5rem;
+}
+
+.key:active {
+  transform: translateY(0.125rem);
+  box-shadow: 0 0.0625rem 0 rgba(0, 255, 65, 0.3), var(--shadow-glow-sm);
+}
+.key-left:active {
+  transform: translateY(0.125rem) rotate(-90deg);
+}
+.key-right:active {
+  transform: translateY(0.125rem) rotate(90deg);
+}
 
 .key::before {
   content: "";
